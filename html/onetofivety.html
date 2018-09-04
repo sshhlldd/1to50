@@ -17,16 +17,6 @@
     </head>
 
     <body style="">
-        <!-- <div id="loading">
-            <div id="loading-center">
-                <div id="loading-center-absolute">
-                    <div class="object" id="object_one"></div>
-                    <div class="object" id="object_two"></div>
-                    <div class="object" id="object_three"></div>
-                    <div class="object" id="object_four"></div>
-                </div>
-            </div>
-        </div> -->
         <div class="tbox" style="">
             <div class="logocon">
                 <div class="logoimg"><img src="../Public/onetofivety/images/logo.png" height="40px"></div>
@@ -44,23 +34,60 @@
                  <span class="num right">1</span>
              </div>
              <p class="tip">以最快的速度按順序點擊 1 to 50</p>
-              <div class="game clearfix">
+              <div class="game clearfix">         
               </div>
-
-            </div>
-             
-            <div class="btn-con clearfix">
-                <a class="resetbtn">重新開始</a>
-            </div>
+            </div>          
             <div class="footer">
                 <img src="../Public/onetofivety/images/banner.png">
             </div>
-            <!-- rule end -->
         </div>
-        <!-- <button onclick='prizeinfo()'>中奖</button><button onclick='noprize()'>未中奖</button> -->
         <script src="../Public/lib/zepto.min.js"></script>
         <script src="../Public/onetofivety/js/onetofivety.js"></script>
-    
+        <script>
+            $(function() {
+            //數組從後台獲取
+            var resultArr=[{
+             txt:'你是宇宙的主宰',//文字
+             grade:'神之所在',//级别
+             img:'../Public/onetofivety/images/panda1.jpg',//图片
+             link:'https://www.baidu.com/'//跳转地址
+            },{
+             txt:'你是内裤外穿的超级英雄！',
+             grade:'超人級',
+             img:'../Public/onetofivety/images/panda2.jpg',
+             link:'https://www.baidu.com/'
+            },{
+             txt:'大神，收下我的膝蓋!',
+             grade:'神人級',
+             img:'../Public/onetofivety/images/panda3.jpg',
+             link:''
+            },{
+             txt:'我為你打Call~！',
+             grade:'高手級',
+             img:'../Public/onetofivety/images/panda4.jpg',
+             link:'https://www.baidu.com/'
+            },{
+             txt:'你就是那宇宙中的一粒塵埃...',
+             grade:'正常級',
+             img:'../Public/onetofivety/images/panda5.jpg',
+             link:'https://www.csdn.net/'
+            },{
+             txt:'扎心了，老鐵！祝你好運~',
+             grade:'初老級',
+             img:'../Public/onetofivety/images/panda6.jpg',
+             link:'https://ke.qq.com/'
+            },{
+             txt:'腦仁也就跟松子差不多大...',
+             grade:'已老級',
+             img:'../Public/onetofivety/images/panda7.jpg',
+             link:'https://www.baidu.com/'
+            }];
+            game.gameinit({
+                node:'.gamecon',
+                resultArr:resultArr
+            });
+          })
+        </script>
     </body>
 
     </html>

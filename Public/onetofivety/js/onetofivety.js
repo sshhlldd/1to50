@@ -1,24 +1,18 @@
-$(function() {
-          
-            game.gameinit(".gamecon");
-            $(document).on('click', '.resetbtn', function() {
-                game.gameinit(".gamecon");
-                Reset();
-            });
 
-})
 var game={
  arr11:[],
  arr22:[],
  node:null,
  currNum:1,
  timer:0,
+ resultArr:[],
  gameinit:function(obj){
             var arr1=[];
             var arr2=[];
             var arr11=[];
             var arr22=[];
-            this.node=$(obj);
+            this.node=$(obj.node);
+            this.resultArr=obj.resultArr;
             for(var i=1;i<=25;i++){
                 arr1.push(i)
             }
@@ -48,7 +42,7 @@ var game={
  },
  handleClick:function(){
     var that=this;
-    this.node.off('click','li');
+    //this.node.off('click','li');
     this.node.on('click','li',function(){
         var v=parseInt($(this).attr('data-value'));
         if(v==that.currNum){
@@ -78,33 +72,27 @@ var game={
     })
  },
  result:function(){  
-    var txt="";
-    var grade="";
+    var gradeObj={};
     if(this.timer>10&&this.timer<=19){
-      txt="你是宇宙的主宰";
-      grade="神之所在";
+      gradeObj=this.resultArr[0]
     }else if(this.timer>=20&&this.timer<=29){
-      txt="大神，收下我的膝蓋";
-      grade="超人級";
+      gradeObj=this.resultArr[1]
     }else if(this.timer>=30&&this.timer<=39){
-      txt="大神，收下我的膝蓋";
-      grade="神人級";
+      gradeObj=this.resultArr[2]
     }else if(this.timer>=40&&this.timer<=59){
-      txt="我為你打Call~";
-      grade="高手級";
+      gradeObj=this.resultArr[3]
     }else if(this.timer>=60&&this.timer<=79){
-      txt="你就是那宇宙中的一粒塵埃...";
-      grade="正常級";
+      gradeObj=this.resultArr[4]
     }else if(this.timer>=80&&this.timer<=99){
-      txt="扎心了，老鐵！祝你好運~";
-      grade="初老級";
+      gradeObj=this.resultArr[5]
     }else if(this.timer>=100){
-      txt="腦仁也就跟松子差不多大...";
-      grade="已老級";
+      gradeObj=this.resultArr[6]
     }
 
-    var restemp=' <div class="rescon"><div class="res"><p class="bb">'+grade+'</p><p class="desc">'+txt+'</p></div></div>'
+    var restemp=' <div class="rescon"><div class="res"><p class="bb">'+gradeObj.grade+'</p><p class="desc">'+gradeObj.txt+'</p><p class="resImg"><img src="'+gradeObj.img+'" width="200px"></p></div></div>'
+    var btntemp='<div class="btn-con clearfix"><a class="nextbtn" href="'+gradeObj.link+'">下一步</a></div>'
     this.node.find('.game').append(restemp);
+    this.node.after(btntemp);
  }
 
 }

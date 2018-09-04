@@ -234,7 +234,7 @@ body {
 .gamecon .game .rescon{
     position: absolute;
     z-index: 1;
-    top:30%;
+    top:20%;
     width:100%;
 }
 .gamecon .game .res{
@@ -247,6 +247,11 @@ body {
    color: #666;
    width: 100%; 
 }
+.gamecon .game .resImg{
+   position: absolute; 
+   width:100%;
+   top:80px; 
+}
 .btn {
     display: inline-block;
     margin-bottom: 0;
@@ -258,12 +263,25 @@ body {
 
 .btn-con {
     width: 100%;
-    text-align: center;
+    text-align: right;
     margin-top: 5%;
 
 }
 
 .btn-con .resetbtn {
+    cursor: pointer;
+    display: inline-block;
+    background: #ec9f1e;
+    color：#fff;
+    width: 36%;
+    font-size: 20px;
+    text-align: center;
+    border-radius:5px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 3%;
+}
+.btn-con .nextbtn {
     cursor: pointer;
     display: inline-block;
     background: #ec9f1e;
