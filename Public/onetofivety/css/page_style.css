@@ -234,23 +234,32 @@ body {
 .gamecon .game .rescon{
     position: absolute;
     z-index: 1;
-    top:20%;
+    top:10%;
     width:100%;
 }
 .gamecon .game .res{
     width:100%;
     text-align: center;
 }
-.gamecon .game .desc{
-   position: absolute;
-   top:50px;  
+.gamecon .game .grade{
+    display: inline-block;
+    padding:4% 7%;
+          font-size: 22px;
+          color: #8fb13d;
+          box-shadow: inset 0 0 0 1px #a1c747, inset 0 0 0 4px #ffffff, inset 0 0 0 7px #a1c747; 
+          -webkit-box-shadow: inset 0 0 0 1px #a1c747, inset 0 0 0 4px #ffffff, inset 0 0 0 7px #a1c747; 
+}
+
+
+.gamecon .game .desc{ 
    color: #666;
    width: 100%; 
+   margin:5% 0;
 }
 .gamecon .game .resImg{
-   position: absolute; 
+
    width:100%;
-   top:80px; 
+
 }
 .btn {
     display: inline-block;
@@ -286,13 +295,26 @@ body {
     display: inline-block;
     background: #ec9f1e;
     color：#fff;
-    width: 36%;
     font-size: 20px;
     text-align: center;
     border-radius:5px;
-    height: 40px;
-    line-height: 40px;
+    padding: 1.5% 4%;
     margin: 0 3%;
+    position: relative;
+    z-index: 2;
+}
+.btn-con .nextbtn .icon{
+    width:22px;
+    height: 22px;
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+    background-image: url(../images/btn-icon.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.btn-con .nextbtn span{
+    vertical-align: middle;
 }
 .footer{
     margin-top: 8%;

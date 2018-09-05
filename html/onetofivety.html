@@ -17,6 +17,16 @@
     </head>
 
     <body style="">
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object" id="object_one"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_three"></div>
+                    <div class="object" id="object_four"></div>
+                </div>
+            </div>
+        </div>
         <div class="tbox" style="">
             <div class="logocon">
                 <div class="logoimg"><img src="../Public/onetofivety/images/logo.png" height="40px"></div>
@@ -34,9 +44,10 @@
                  <span class="num right">1</span>
              </div>
              <p class="tip">以最快的速度按順序點擊 1 to 50</p>
-              <div class="game clearfix">         
+              <div class="game clearfix">        
               </div>
-            </div>          
+            </div>     
+    
             <div class="footer">
                 <img src="../Public/onetofivety/images/banner.png">
             </div>
@@ -82,10 +93,21 @@
              img:'../Public/onetofivety/images/panda7.jpg',
              link:'https://www.baidu.com/'
             }];
-            game.gameinit({
+            var preimgs=[];
+            for(var i=0;i<resultArr.length;i++){
+             preimgs.push(resultArr[i].img);
+            }
+            //图片预加载
+             preloadimages(preimgs).done(function(images) {
+                $('#loading').hide();
+                  game.gameinit({
                 node:'.gamecon',
                 resultArr:resultArr
             });
+             
+                });
+
+          
           })
         </script>
     </body>

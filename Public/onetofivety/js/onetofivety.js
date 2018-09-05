@@ -89,8 +89,8 @@ var game={
       gradeObj=this.resultArr[6]
     }
 
-    var restemp=' <div class="rescon"><div class="res"><p class="bb">'+gradeObj.grade+'</p><p class="desc">'+gradeObj.txt+'</p><p class="resImg"><img src="'+gradeObj.img+'" width="200px"></p></div></div>'
-    var btntemp='<div class="btn-con clearfix"><a class="nextbtn" href="'+gradeObj.link+'">下一步</a></div>'
+    var restemp='<div class="rescon"><div class="res"><p class="grade">'+gradeObj.grade+'</p><p class="desc">'+gradeObj.txt+'</p><p class="resImg"><img src="'+gradeObj.img+'" width="200px"></p></div></div>'
+    var btntemp='<div class="btn-con clearfix"><a class="nextbtn" href="'+gradeObj.link+'"><span>下一步</span><i class="icon"></i></a></div>'
     this.node.find('.game').append(restemp);
     this.node.after(btntemp);
  }
@@ -193,4 +193,32 @@ ggPOP.prototype.foot=function(obj){
   }
   s+='<p class="btncon share"><a href="javascript:;" class="btn"><i></i><span>分享給朋友</span></a></p></div>';
   $('.gg_box').append(s);
+}
+function preloadimages(arr) {
+    var newimages = [],
+        loadedimages = 0
+    var postaction = function() {} //此处增加了一个postaction函数
+    var arr = (typeof arr != "object") ? [arr] : arr
+
+    function imageloadpost() {
+        loadedimages++
+        if (loadedimages == arr.length) {
+            postaction(newimages) //加载完成用我们调用postaction函数并将newimages数组做为参数传递进去
+        }
+    }
+    for (var i = 0; i < arr.length; i++) {
+        newimages[i] = new Image()
+        newimages[i].src = arr[i]
+        newimages[i].onload = function() {
+            imageloadpost()
+        }
+        newimages[i].onerror = function() {
+            imageloadpost()
+        }
+    }
+    return { //此处返回一个空白对象的done方法
+        done: function(f) {
+            postaction = f || postaction
+        }
+    }
 }
